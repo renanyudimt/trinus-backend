@@ -19,4 +19,6 @@ const Route = use('Route');
 Route.post('/signup', 'UserController.signup');
 Route.post('/login', 'UserController.login');
 
-Route.get("/uploads", "UploadController.list").middleware(["auth"]);
+Route.get("/uploads/:userId", "UploadController.show")
+Route.post("/upload", "UploadController.create")
+Route.get("/download/:fileName", "UploadController.download")

@@ -7,15 +7,8 @@ class UploadSchema extends Schema {
   up () {
     this.create('uploads', (table) => {
       table.increments()
-      table
-        .integer('user_id') //nome
-        .unsigned() //nao pode ser abaixo de 0 
-        .notNullable() //nao pode ser nulo
-        .reference('id') //qual column
-        .inTable('users') //qual table
-        .onUpdate('CASCADE')
-        .onDelete('CASCADE')
-
+      table.integer('userId').notNullable()
+      table.string('fileName').notNullable()
       table.timestamps()
     })
   }
